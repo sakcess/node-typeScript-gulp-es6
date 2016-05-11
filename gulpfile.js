@@ -7,7 +7,7 @@ var browserify  = require('browserify');
 var tsify       = require('tsify');
 var source      = require('vinyl-source-stream');
 var buffer      = require('vinyl-buffer');
-//commment 
+//comment
 var bases = {
   app: 'app/',
   dist: 'dist/',
