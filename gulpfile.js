@@ -9,7 +9,7 @@ var source      = require('vinyl-source-stream');
 var buffer      = require('vinyl-buffer');
 
 var bases = {
-  app: 'app/',
+  app: 'api/app/',
   dist: 'dist/',
 };
 
