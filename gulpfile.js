@@ -7,6 +7,8 @@ var browserify  = require('browserify');
 var tsify       = require('tsify');
 var source      = require('vinyl-source-stream');
 var buffer      = require('vinyl-buffer');
+var uglify      = require('gulp-uglify');
+var sourcemaps  = require('gulp-sourcemaps');
 
 var bases = {
   app: 'app/',
@@ -47,6 +49,9 @@ gulp.task('typeScriptIt', function()
   .bundle()
   .pipe(source('App.js'))
   .pipe(buffer())
+  .pipe(sourcemaps.init({loadMaps: true}))
+  .pipe(uglify())
+  .pipe(sourcemaps.write('./'))
   .pipe(gulp.dest(bases.dist))
   .pipe(browserSync.reload({stream : true}));
 
