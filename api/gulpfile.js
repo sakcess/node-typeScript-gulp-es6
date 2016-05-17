@@ -11,7 +11,7 @@ var uglify      = require('gulp-uglify');
 var sourcemaps  = require('gulp-sourcemaps');
 
 var bases = {
-  app: 'api/app/',
+  app: 'app/',
   dist: 'dist/',
 };
 
@@ -47,7 +47,7 @@ gulp.task('typeScriptIt', function()
   browserify({ entries: bases.app+'App.ts', debug: true })
   .plugin(tsify)
   .bundle()
-  .pipe(source('App.js'))
+  .pipe(source('bundle.js'))
   .pipe(buffer())
   .pipe(sourcemaps.init({loadMaps: true}))
   .pipe(uglify())
