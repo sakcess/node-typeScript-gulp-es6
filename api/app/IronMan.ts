@@ -1,6 +1,6 @@
 export class IronMan
 {
-  firstName:string = 'Tony';
+  private firstName:string = 'Tony';
 
   status()
   {
