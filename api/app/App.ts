@@ -1,5 +1,5 @@
 //import AvengersModule = require('./Avengers');
-//import * as AvengersModule from "./Avengers"
+//import * as AvengersModule from "./Avengers";
 import { Avengers as AvengersModule } from "./Avengers";
 
 var superHeros = new AvengersModule();
