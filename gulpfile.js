@@ -11,7 +11,7 @@ var uglify      = require('gulp-uglify');
 var sourcemaps  = require('gulp-sourcemaps');
 
 var bases = {
-  app: 'app/',
+  app: 'api/app/',
   dist: 'dist/',
 };
 
