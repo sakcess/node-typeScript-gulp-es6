@@ -1,9 +1,9 @@
-import IronManModule = require('./IronMan');
+//import IronManModule = require('./IronMan');
+import { IronMan as IronManModule } from "./IronMan";
 
-export class Avengers extends IronManModule.IronMan
+export class Avengers extends IronManModule
 {
-
-
+  
   attack()
   {
     super.attack();
