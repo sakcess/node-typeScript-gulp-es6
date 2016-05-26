@@ -43,9 +43,6 @@ gulp.task('watchfiles', function () {
 });
 
 gulp.task('typeScriptIt', function () {
-    /*var doTranspile = gulp.src(bases.app + '**!/!*.ts')
-        .pipe(typeScript())
-        .pipe(gulp.dest(bases.app));*/
 
     browserify({
         entries: bases.app + 'App.ts',
@@ -74,6 +71,7 @@ gulp.task('test', function () {
     // .pipe(gulp.dest(bases.test+'commonjs'))
     // .pipe(mocha({reporter: 'nyan'})); // list, nyan, progress, spec'
 
+    /*transpile app ts files*/
     gulp.src(bases.app + '**/*.ts')
         .pipe(typeScript())
         .pipe(gulp.dest(bases.app));
@@ -82,7 +80,7 @@ gulp.task('test', function () {
     setTimeout(
         function () {
             gulp.src(bases.test + '*Test.ts')
-            /*transpile*/
+                /*transpile test ts files*/
                 .pipe(typeScript())
                 /*flush to disk*/
                 .pipe(gulp.dest(bases.test))
@@ -95,8 +93,4 @@ gulp.task('test', function () {
                     del.sync(bases.test+'**/*.js');
                 });
         }, 2000);
-
-
-
-
 });
