@@ -5,7 +5,7 @@
 /// <reference path="../typings/chai/chai.d.ts" />
 
 import chai = require('chai');
-import Calculator from '../app/test/Calc';
+import Calculator from '../app-test/Calc';
 
 var assert = chai.assert,
     expect = chai.expect,
