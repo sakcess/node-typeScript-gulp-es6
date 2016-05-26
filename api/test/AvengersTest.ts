@@ -5,7 +5,7 @@
 /// <reference path="../typings/chai/chai.d.ts" />
 
 import chai = require('chai');
-import {Avengers} from "../app/Avengers";
+import {Avengers} from "../app/test/Avengers";
 
 var assert = chai.assert,
     expect = chai.expect,

@@ -12,7 +12,7 @@ var sourcemaps = require('gulp-sourcemaps');
 var mocha = require('gulp-mocha');
 
 var bases = {
-    app: 'app/',
+    app: 'app/test/', //'app/test/'
     dist: 'build/',
     test: 'test/'
 };
