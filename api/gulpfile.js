@@ -43,9 +43,9 @@ gulp.task('watchfiles', function () {
 });
 
 gulp.task('typeScriptIt', function () {
-    var doTranspile = gulp.src(bases.app + '**/*.ts')
+    /*var doTranspile = gulp.src(bases.app + '**!/!*.ts')
         .pipe(typeScript())
-        .pipe(gulp.dest(bases.app));
+        .pipe(gulp.dest(bases.app));*/
 
     browserify({
         entries: bases.app + 'App.ts',
@@ -72,20 +72,31 @@ gulp.task('test', function () {
     // return gulp.src(bases.test+'**/*.ts')
     // .pipe(typeScript())
     // .pipe(gulp.dest(bases.test+'commonjs'))
-    // .pipe(mocha({reporter: 'nyan'})); // list,nyan'
+    // .pipe(mocha({reporter: 'nyan'})); // list, nyan, progress, spec'
 
-    gulp.src(bases.test + '*Test.ts')
-        /*transpile*/
+    gulp.src(bases.app + '**/*.ts')
         .pipe(typeScript())
-        /*flush to disk*/
-        .pipe(gulp.dest(bases.test))
-        /*execute tests*/
-        .pipe(mocha({
-            reporter: 'progress'
-        }))
-        .on('end', function() {
-            del.sync(bases.app+'**/*.js');
-            del.sync(bases.test+'**/*.js');
-        });
+        .pipe(gulp.dest(bases.app));
+
+    //setting timeout to wait for js file to be created
+    setTimeout(
+        function () {
+            gulp.src(bases.test + '*Test.ts')
+            /*transpile*/
+                .pipe(typeScript())
+                /*flush to disk*/
+                .pipe(gulp.dest(bases.test))
+                /*execute tests*/
+                .pipe(mocha({
+                    reporter: 'spec'
+                }))
+                .on('end', function () {
+                    del.sync(bases.app+'**/*.js');
+                    del.sync(bases.test+'**/*.js');
+                });
+        }, 2000);
+
+
+
 
 });
